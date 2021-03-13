@@ -1,0 +1,26 @@
+.tabla{
+    border: 1px solid black;
+    color: rgb(235, 5, 5);
+}
+
+.tabla, thead,tbody,th,td,tr{
+    border: 1px solid black;
+    color: rgb(235, 5, 5);
+}
+
+
+body{
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    background-color: violet;
+    color: white;
+}
+footer{
+    background-color: brown;
+    color: white;
+}

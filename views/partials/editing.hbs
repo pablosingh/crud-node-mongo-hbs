@@ -1,0 +1,8 @@
+<h2>Valores para editar</h2>
+
+<form action="/edit" method="POST">
+    <input type="text" name="id" value="{{persona._id}}" readonly>
+    <input type="text" name="name" value="{{persona.name}}">
+    <input type="text" name="tel" value="{{persona.tel}}">
+    <button type="submit">Editar</button>
+</form>

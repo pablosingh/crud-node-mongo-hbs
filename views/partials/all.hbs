@@ -1,0 +1,18 @@
+<table class="tabla">
+    <thead>
+        <tr>
+            <th>#ID</th>
+            <th>Nombre</th>
+            <th>Telefono</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each personas}}
+            <tr>
+                <td>{{this._id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.tel}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -6,5 +6,5 @@ mongoose.connect( 'mongodb://localhost/guia', {
     useFindAndModify: false
 } )
     .then(console.log('DB is connected =D'))
-    .catch( err => console.err(err) );
+    .catch( err => console.err('ERROR => '+err) );
 

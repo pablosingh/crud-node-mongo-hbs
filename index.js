@@ -30,6 +30,25 @@ app.use( express.static('public') );
 app.use(morgan('dev'));
 
 // Routes
+app.get('/pre-delete', async (req,res) => {
+    const personas = await model.find({});
+    res.render('partials/pre-delete', {personas});
+});
+app.post('/delete', async (req,res) => {
+    const id = req.body.id;
+    const person = await model.findById( id , (err, per) => {
+        if (err) 
+            res.send('Error al buscar para borrar');
+        else 
+            per.remove( err => {
+                if (err)
+                    res.send('Error al borrar');
+                else 
+                    showAll(req,res);
+            });
+    });
+});
+
 app.get('/pre-edit', async(req,res) => {
     const personas = await model.find({});
     console.log(personas);
@@ -57,21 +76,13 @@ app.get('/add', (req,res) => {
     res.render('partials/add');
 });
 
-async function showAll(req,res) {
+const showAll = async (req,res) => {
     const personas = await model.find({});
     console.log(personas);
     res.render('partials/all', {personas});
 }
 
-
 app.get('/all', showAll);
-
-// app.get('/all', async (req,res) => {
-//     const personas = await model.find({});
-//     console.log(personas);
-//     res.render('partials/all', {personas});
-//     // res.send('Ok');
-// });
 
 app.post('/add', async (req,res) => {
     const { name, tel } = req.body;
